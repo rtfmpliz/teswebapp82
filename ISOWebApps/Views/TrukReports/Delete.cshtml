@@ -1,0 +1,104 @@
+﻿@model ISOWebApps.Models.TrukReport
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>TrukReport</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NoPolisi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoPolisi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Driver)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Driver)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AsstDriver)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AsstDriver)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tujuan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tujuan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Berangkat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Berangkat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pulang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pulang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MuatanBerangkat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MuatanBerangkat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QtyMuatanBerangkat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QtyMuatanBerangkat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MuatanPulang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MuatanPulang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QtyMuatanPulang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QtyMuatanPulang)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

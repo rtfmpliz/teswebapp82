@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ISOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="MtcReport">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DocNumber" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ReportDate" Type="date" Nullable="false" />
+          <Property Name="Mesin" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Unit" Type="nvarchar" MaxLength="50" />
+          <Property Name="Part" Type="nvarchar" MaxLength="50" />
+          <Property Name="Kerusakan" Type="nvarchar(max)" />
+          <Property Name="PartsPengganti" Type="nvarchar(max)" />
+          <Property Name="Penyimpanan" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Stock" Type="int" />
+          <Property Name="Inspection" Type="nvarchar" MaxLength="1" />
+          <Property Name="Repaired" Type="nvarchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="SuratMasuk">
+          <Key>
+            <PropertyRef Name="SuratMasukId" />
+          </Key>
+          <Property Name="SuratMasukId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TglSuratMasuk" Type="date" Nullable="false" />
+          <Property Name="JamSuratMasuk" Type="time" Precision="7" Nullable="false" />
+          <Property Name="JumlahSurat" Type="smallint" Nullable="false" />
+          <Property Name="JenisSurat" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Pengirim" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Kepada" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PenerimaSecurity" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="PenerimaKantor" Type="nvarchar" MaxLength="20" />
+          <Property Name="Verifikasi" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="Truk">
+          <Key>
+            <PropertyRef Name="TrukID" />
+          </Key>
+          <Property Name="TrukID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NoPolisi" Type="nvarchar" MaxLength="12" />
+        </EntityType>
+        <EntityType Name="TrukReport">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NoPolisi" Type="nvarchar" MaxLength="12" />
+          <Property Name="Driver" Type="nvarchar" MaxLength="50" />
+          <Property Name="AsstDriver" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tujuan" Type="nvarchar" MaxLength="50" />
+          <Property Name="Berangkat" Type="date" />
+          <Property Name="Pulang" Type="date" />
+          <Property Name="MuatanBerangkat" Type="nvarchar" MaxLength="50" />
+          <Property Name="QtyMuatanBerangkat" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="MuatanPulang" Type="nvarchar" MaxLength="50" />
+          <Property Name="QtyMuatanPulang" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityContainer Name="ISOModelStoreContainer">
+          <EntitySet Name="MtcReport" EntityType="Self.MtcReport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SuratMasuk" EntityType="Self.SuratMasuk" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Truk" EntityType="Self.Truk" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TrukReport" EntityType="Self.TrukReport" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ISOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="SuratMasuk">
+          <Key>
+            <PropertyRef Name="SuratMasukId" />
+          </Key>
+          <Property Name="SuratMasukId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TglSuratMasuk" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="JamSuratMasuk" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="JumlahSurat" Type="Int16" Nullable="false" />
+          <Property Name="JenisSurat" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Pengirim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Kepada" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PenerimaSecurity" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PenerimaKantor" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Verifikasi" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="ISOEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="SuratMasuks" EntityType="Self.SuratMasuk" />
+          <EntitySet Name="MtcReports" EntityType="ISOModel.MtcReport" />
+          <EntitySet Name="Truks" EntityType="ISOModel.Truk" />
+          <EntitySet Name="TrukReports" EntityType="ISOModel.TrukReport" />
+        </EntityContainer>
+        <EntityType Name="MtcReport">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DocNumber" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ReportDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Mesin" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Unit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Part" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Kerusakan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PartsPengganti" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Penyimpanan" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Stock" Type="Int32" />
+          <Property Name="Inspection" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Repaired" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Truk">
+          <Key>
+            <PropertyRef Name="TrukID" />
+          </Key>
+          <Property Name="TrukID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NoPolisi" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TrukReport">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NoPolisi" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="Driver" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AsstDriver" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tujuan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Berangkat" Type="DateTime" Precision="0" />
+          <Property Name="Pulang" Type="DateTime" Precision="0" />
+          <Property Name="MuatanBerangkat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="QtyMuatanBerangkat" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="MuatanPulang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="QtyMuatanPulang" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ISOModelStoreContainer" CdmEntityContainer="ISOEntities">
+          <EntitySetMapping Name="SuratMasuks">
+            <EntityTypeMapping TypeName="ISOModel.SuratMasuk">
+              <MappingFragment StoreEntitySet="SuratMasuk">
+                <ScalarProperty Name="SuratMasukId" ColumnName="SuratMasukId" />
+                <ScalarProperty Name="TglSuratMasuk" ColumnName="TglSuratMasuk" />
+                <ScalarProperty Name="JamSuratMasuk" ColumnName="JamSuratMasuk" />
+                <ScalarProperty Name="JumlahSurat" ColumnName="JumlahSurat" />
+                <ScalarProperty Name="JenisSurat" ColumnName="JenisSurat" />
+                <ScalarProperty Name="Pengirim" ColumnName="Pengirim" />
+                <ScalarProperty Name="Kepada" ColumnName="Kepada" />
+                <ScalarProperty Name="PenerimaSecurity" ColumnName="PenerimaSecurity" />
+                <ScalarProperty Name="PenerimaKantor" ColumnName="PenerimaKantor" />
+                <ScalarProperty Name="Verifikasi" ColumnName="Verifikasi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MtcReports">
+            <EntityTypeMapping TypeName="ISOModel.MtcReport">
+              <MappingFragment StoreEntitySet="MtcReport">
+                <ScalarProperty Name="Repaired" ColumnName="Repaired" />
+                <ScalarProperty Name="Inspection" ColumnName="Inspection" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="Penyimpanan" ColumnName="Penyimpanan" />
+                <ScalarProperty Name="PartsPengganti" ColumnName="PartsPengganti" />
+                <ScalarProperty Name="Kerusakan" ColumnName="Kerusakan" />
+                <ScalarProperty Name="Part" ColumnName="Part" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="Mesin" ColumnName="Mesin" />
+                <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+                <ScalarProperty Name="DocNumber" ColumnName="DocNumber" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Truks">
+            <EntityTypeMapping TypeName="ISOModel.Truk">
+              <MappingFragment StoreEntitySet="Truk">
+                <ScalarProperty Name="NoPolisi" ColumnName="NoPolisi" />
+                <ScalarProperty Name="TrukID" ColumnName="TrukID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TrukReports">
+            <EntityTypeMapping TypeName="ISOModel.TrukReport">
+              <MappingFragment StoreEntitySet="TrukReport">
+                <ScalarProperty Name="QtyMuatanPulang" ColumnName="QtyMuatanPulang" />
+                <ScalarProperty Name="MuatanPulang" ColumnName="MuatanPulang" />
+                <ScalarProperty Name="QtyMuatanBerangkat" ColumnName="QtyMuatanBerangkat" />
+                <ScalarProperty Name="MuatanBerangkat" ColumnName="MuatanBerangkat" />
+                <ScalarProperty Name="Pulang" ColumnName="Pulang" />
+                <ScalarProperty Name="Berangkat" ColumnName="Berangkat" />
+                <ScalarProperty Name="Tujuan" ColumnName="Tujuan" />
+                <ScalarProperty Name="AsstDriver" ColumnName="AsstDriver" />
+                <ScalarProperty Name="Driver" ColumnName="Driver" />
+                <ScalarProperty Name="NoPolisi" ColumnName="NoPolisi" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,98 @@
+﻿@model ISOWebApps.Models.TrukReport
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TrukReport</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NoPolisi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoPolisi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Driver)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Driver)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AsstDriver)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AsstDriver)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tujuan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tujuan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Berangkat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Berangkat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pulang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pulang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MuatanBerangkat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MuatanBerangkat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QtyMuatanBerangkat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QtyMuatanBerangkat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MuatanPulang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MuatanPulang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QtyMuatanPulang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QtyMuatanPulang)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

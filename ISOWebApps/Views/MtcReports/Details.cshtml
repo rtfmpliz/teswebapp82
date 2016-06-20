@@ -1,0 +1,106 @@
+﻿@model ISOWebApps.Models.MtcReport
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MtcReport</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DocNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReportDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReportDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mesin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mesin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Unit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Unit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Part)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Part)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kerusakan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kerusakan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PartsPengganti)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PartsPengganti)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Penyimpanan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Penyimpanan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stock)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Inspection)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Inspection)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Repaired)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Repaired)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

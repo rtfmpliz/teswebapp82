@@ -1,0 +1,107 @@
+﻿@*model IEnumerable<ISOWebApps.Models.SuratMasuk>*@
+@model PagedList.IPagedList<ISOWebApps.Models.SuratMasuk>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "SuratMasuks";
+}
+
+<h2>Daftar Surat Masuk</h2>
+
+
+<p>
+    <div class="btn btn-default fa fa-plus fa-lg">
+        @Html.ActionLink("Tambah", "Create")
+    </div>
+</p>
+@using (Html.BeginForm("Index","SuratMasuks",FormMethod.Get))
+{
+    <p>
+        Cari data Pengirim / Kepada : @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Cari" />
+    </p>
+}
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.TglSuratMasuk)*@
+            @Html.ActionLink("TglSuratMasuk", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter=ViewBag.CurrentFilter })
+            
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.JamSuratMasuk)*@
+            Jam Surat Diterima
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.JumlahSurat)*@ Jumlah Surat
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.JenisSurat)*@ Jenis Surat
+        </th>
+        <th>
+            @Html.ActionLink("Pengirim", "Index", new { sortOrder = ViewBag.NameSortParm })
+            @*@Html.DisplayNameFor(model => model.Pengirim)*@
+        </th>
+        <th>
+            @Html.ActionLink("Kepada", "Index", new { sortOrder = ViewBag.NameSortParm })
+            @*@Html.DisplayNameFor(model => model.Kepada)*@
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.PenerimaSecurity)*@ Penerima di Security
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.PenerimaKantor)*@Penerima di Kantor
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Verifikasi)*@Verifikasi
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.TglSuratMasuk)*@
+            @String.Format("{0:d MMM yyyy}", item.TglSuratMasuk)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JamSuratMasuk)
+            @*@String.Format("{0:HH mm}", item.JamSuratMasuk)*@
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JumlahSurat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JenisSurat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pengirim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kepada)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PenerimaSecurity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PenerimaKantor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Verifikasi)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.SuratMasukId }) |*@
+            @*@Html.ActionLink("Details", "Details", new { id=item.SuratMasukId }) |*@
+            @*@Html.ActionLink("Delete", "Delete", new { id=item.SuratMasukId })*@
+        </td>
+    </tr>
+}
+
+</table>
+
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

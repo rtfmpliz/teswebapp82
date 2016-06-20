@@ -1,0 +1,111 @@
+﻿@*@model IEnumerable<ISOWebApps.Models.MtcReport>*@
+@model PagedList.IPagedList<ISOWebApps.Models.MtcReport>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "MtcReports";
+}
+
+<h2>Maintenance System</h2>
+
+<p>
+    <div class="btn btn-default fa fa-plus fa-lg">
+        @Html.ActionLink("Tambah", "Create")
+    </div>
+</p>
+@using (Html.BeginForm("Index", "MtcReports", FormMethod.Get))
+{
+    <p>
+        Cari data  : @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Cari" />
+    </p>
+}
+<table class="table">
+    <tr>
+        <th>
+            Doc Number
+        </th>
+        <th>
+            @Html.ActionLink("RecordDate", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+Inspection        </th>
+        <th>
+Repaired        </th>
+        <th>
+            @Html.ActionLink("Mesin", "Index", new { sortOrder = ViewBag.NameSortParm })
+        </th>
+        <th>
+Unit        </th>
+        <th>
+Part        </th>
+        <th>
+Kerusakan        </th>
+        <th>
+            Parts Pengganti
+        </th>
+        <th>
+Penyimpanan        </th>
+        <th>
+            Stock
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DocNumber)
+            </td>
+            <td>
+                @String.Format("{0:d MMM yyyy}", item.ReportDate)
+                @*@Html.DisplayFor(modelItem => item.ReportDate)*@
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Inspection)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Repaired)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mesin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Unit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Part)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kerusakan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartsPengganti)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Penyimpanan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stock)
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit ", "Edit", new { id = item.ID })
+                @Html.ActionLink("Detail ", "Details", new { id = item.ID })
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
+
