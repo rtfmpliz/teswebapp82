@@ -35,7 +35,39 @@
     <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>0</WarningLevel>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="DefaultConnection-Deployment" Order="1">
+          <Destination Path="" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=%28LocalDb%29\MSSQLLocalDB%3bAttachDbFilename=|DataDirectory|\aspnet-ISOWebApps-20160524081958.mdf%3bInitial Catalog=aspnet-ISOWebApps-20160524081958%3bIntegrated Security=True" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Debug\AutoScripts\DefaultConnection-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+        <ObjectGroup Name="ISOUser-Deployment" Order="2">
+          <Destination Path="" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=WAHYU-SMG\SQLEXPRESS%3bInitial Catalog=UserDebug%3bIntegrated Security=False%3bUser ID=sa%3bPassword=Nirvana00%3bConnect Timeout=15%3bEncrypt=False%3bTrustServerCertificate=True%3bApplicationIntent=ReadWrite%3bMultiSubnetFailover=False" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Debug\AutoScripts\ISOUser-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+        <ObjectGroup Name="KendaraanContext-Deployment" Order="3">
+          <Destination Path="" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=WAHYU-SMG\SQLEXPRESS%3bInitial Catalog=KendaraanDebug%3bIntegrated Security=False%3bUser ID=sa%3bPassword=Nirvana00%3bConnect Timeout=15%3bEncrypt=False%3bTrustServerCertificate=True%3bApplicationIntent=ReadWrite%3bMultiSubnetFailover=False" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Debug\AutoScripts\KendaraanContext-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+        <ObjectGroup Name="ISOEntities-Deployment" Order="4">
+          <Destination Path="" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=WAHYU-SMG\SQLEXPRESS%3bInitial Catalog=ISODebug%3bIntegrated Security=False%3bUser ID=sa%3bPassword=Nirvana00%3bApplication Name=EntityFramework" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Debug\AutoScripts\ISOEntities-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -44,6 +76,39 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="DefaultConnection-Deployment" Order="1" xmlns="">
+          <Destination Path="" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=%28LocalDb%29\MSSQLLocalDB%3bAttachDbFilename=|DataDirectory|\aspnet-ISOWebApps-20160524081958.mdf%3bInitial Catalog=aspnet-ISOWebApps-20160524081958%3bIntegrated Security=True" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Release\AutoScripts\DefaultConnection-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+        <ObjectGroup Name="ISOUser-Deployment" Order="2" xmlns="">
+          <Destination Path="" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=WAHYU-SMG\SQLEXPRESS%3bInitial Catalog=UserDebug%3bIntegrated Security=False%3bUser ID=sa%3bPassword=Nirvana00%3bConnect Timeout=15%3bEncrypt=False%3bTrustServerCertificate=True%3bApplicationIntent=ReadWrite%3bMultiSubnetFailover=False" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Release\AutoScripts\ISOUser-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+        <ObjectGroup Name="KendaraanContext-Deployment" Order="3" xmlns="">
+          <Destination Path="" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=WAHYU-SMG\SQLEXPRESS%3bInitial Catalog=KendaraanDebug%3bIntegrated Security=False%3bUser ID=sa%3bPassword=Nirvana00%3bConnect Timeout=15%3bEncrypt=False%3bTrustServerCertificate=True%3bApplicationIntent=ReadWrite%3bMultiSubnetFailover=False" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Release\AutoScripts\KendaraanContext-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+        <ObjectGroup Name="ISOEntities-Deployment" Order="4" xmlns="">
+          <Destination Path="" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=WAHYU-SMG\SQLEXPRESS%3bInitial Catalog=ISODebug%3bIntegrated Security=False%3bUser ID=sa%3bPassword=Nirvana00%3bApplication Name=EntityFramework" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Release\AutoScripts\ISOEntities-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -260,8 +325,25 @@
     <Compile Include="Migrations\201606300752587_tambahtgldikerjakanndetail.Designer.cs">
       <DependentUpon>201606300752587_tambahtgldikerjakanndetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201607130223551_DebugDB.cs" />
+    <Compile Include="Migrations\201607130223551_DebugDB.Designer.cs">
+      <DependentUpon>201607130223551_DebugDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607130229095_DebugDB2.cs" />
+    <Compile Include="Migrations\201607130229095_DebugDB2.Designer.cs">
+      <DependentUpon>201607130229095_DebugDB2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607130307456_DBDebug3.cs" />
+    <Compile Include="Migrations\201607130307456_DBDebug3.Designer.cs">
+      <DependentUpon>201607130307456_DBDebug3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607130315495_DBDebug31.cs" />
+    <Compile Include="Migrations\201607130315495_DBDebug31.Designer.cs">
+      <DependentUpon>201607130315495_DBDebug31.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Department.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ISO.Context.cs">
       <AutoGen>True</AutoGen>
@@ -278,6 +360,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ISO.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Jabatan.cs" />
+    <Compile Include="Models\Karyawan.cs" />
     <Compile Include="Models\Kendaraan.cs" />
     <Compile Include="Models\LapService.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -285,6 +369,7 @@
       <DependentUpon>ISO.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ProblemKendaraan.cs" />
+    <Compile Include="Models\Section.cs" />
     <Compile Include="Models\SuratMasuk.cs">
       <DependentUpon>ISO.tt</DependentUpon>
     </Compile>
@@ -380,6 +465,8 @@
     <Content Include="MenuPakHendi\fonts\fontawesome-webfont.woff2" />
     <Content Include="MenuPakHendi\fonts\FontAwesome.otf" />
     <None Include="Properties\PublishProfiles\83.pubxml" />
+    <None Include="Properties\PublishProfiles\91.pubxml" />
+    <None Include="Properties\PublishProfiles\92Release.pubxml" />
     <None Include="Properties\PublishProfiles\new.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -501,6 +588,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606300752587_tambahtgldikerjakanndetail.resx">
       <DependentUpon>201606300752587_tambahtgldikerjakanndetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607130223551_DebugDB.resx">
+      <DependentUpon>201607130223551_DebugDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607130229095_DebugDB2.resx">
+      <DependentUpon>201607130229095_DebugDB2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607130307456_DBDebug3.resx">
+      <DependentUpon>201607130307456_DBDebug3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607130315495_DBDebug31.resx">
+      <DependentUpon>201607130315495_DBDebug31.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
