@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -25,6 +26,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -217,13 +219,48 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KendaraanController.cs" />
+    <Compile Include="Controllers\LapServiceController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MtcReportsController.cs" />
+    <Compile Include="Controllers\ProblemKendaraanController.cs" />
     <Compile Include="Controllers\SuratMasuksController.cs" />
     <Compile Include="Controllers\TrukReportsController.cs" />
+    <Compile Include="DAL\KendaraanContext.cs" />
+    <Compile Include="DAL\KendaraanContext.Views.cs" />
+    <Compile Include="DAL\KendaraanInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606270943407_InitialCreate.cs" />
+    <Compile Include="Migrations\201606270943407_InitialCreate.Designer.cs">
+      <DependentUpon>201606270943407_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606280633427_initial2.cs" />
+    <Compile Include="Migrations\201606280633427_initial2.Designer.cs">
+      <DependentUpon>201606280633427_initial2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606280712261_TambahProblemTrial1.cs" />
+    <Compile Include="Migrations\201606280712261_TambahProblemTrial1.Designer.cs">
+      <DependentUpon>201606280712261_TambahProblemTrial1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606290046544_hilangproblemdrLapService.cs" />
+    <Compile Include="Migrations\201606290046544_hilangproblemdrLapService.Designer.cs">
+      <DependentUpon>201606290046544_hilangproblemdrLapService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606290058427_newProblem.cs" />
+    <Compile Include="Migrations\201606290058427_newProblem.Designer.cs">
+      <DependentUpon>201606290058427_newProblem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606290534359_ProblemShow.cs" />
+    <Compile Include="Migrations\201606290534359_ProblemShow.Designer.cs">
+      <DependentUpon>201606290534359_ProblemShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606300752587_tambahtgldikerjakanndetail.cs" />
+    <Compile Include="Migrations\201606300752587_tambahtgldikerjakanndetail.Designer.cs">
+      <DependentUpon>201606300752587_tambahtgldikerjakanndetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ISO.Context.cs">
@@ -241,10 +278,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ISO.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Kendaraan.cs" />
+    <Compile Include="Models\LapService.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MtcReport.cs">
       <DependentUpon>ISO.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProblemKendaraan.cs" />
     <Compile Include="Models\SuratMasuk.cs">
       <DependentUpon>ISO.tt</DependentUpon>
     </Compile>
@@ -258,38 +298,38 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\CountDown\images\dark_days_dash.png" />
-    <Content Include="Content\CountDown\images\dark_hours_dash.png" />
-    <Content Include="Content\CountDown\images\dark_minutes_dash.png" />
-    <Content Include="Content\CountDown\images\dark_seconds_dash.png" />
-    <Content Include="Content\CountDown\images\dark_weeks_dash.png" />
-    <Content Include="Content\CountDown\images\dash.png" />
-    <Content Include="Content\CountDown\images\loading.gif" />
-    <Content Include="Content\CountDown\index.html" />
-    <Content Include="Content\CountDown\js\jquery-1.4.1.js" />
-    <Content Include="Content\CountDown\js\jquery.lwtCountdown-1.0.js" />
-    <Content Include="Content\CountDown\js\misc.js" />
-    <Content Include="Content\CountDown\style\dark.css" />
-    <Content Include="Content\CountDown\style\main.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\istw.gif" />
     <Content Include="Content\PagedList.css" />
-    <Content Include="Content\querycount\css\media.css" />
-    <Content Include="Content\querycount\img\bg-tile.png" />
-    <Content Include="Content\querycount\img\digits-min.png" />
-    <Content Include="Content\querycount\img\digits.png" />
-    <Content Include="Content\querycount\img\time-placeholder.png" />
-    <Content Include="Content\querycount\js\jquery.countdown.js" />
-    <Content Include="Content\querycount\js\jquery.countdown.min.js" />
-    <Content Include="Content\simple-sidebar.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
+    <Content Include="MenuPakHendi\Content\animate.min.css" />
+    <Content Include="MenuPakHendi\Content\bootstrap.css" />
+    <Content Include="MenuPakHendi\Content\bootstrap.min.css" />
+    <Content Include="MenuPakHendi\Content\css\select2.min.css" />
+    <Content Include="MenuPakHendi\Content\iCheck\flat\green.css" />
+    <Content Include="MenuPakHendi\css\bootstrap.css" />
+    <Content Include="MenuPakHendi\css\custom.css" />
+    <Content Include="MenuPakHendi\css\daterangepicker.css" />
+    <Content Include="MenuPakHendi\css\font-awesome.min.css" />
+    <Content Include="MenuPakHendi\css\fontawesome-webfont.svg" />
+    <Content Include="MenuPakHendi\css\font\fontawesome-webfont.svg" />
+    <Content Include="MenuPakHendi\fonts\fontawesome-webfont.svg" />
+    <Content Include="MenuPakHendi\images\Admin-icon.png" />
+    <Content Include="MenuPakHendi\images\img.jpg" />
+    <Content Include="MenuPakHendi\Scripts\bootstrap.min.js" />
+    <Content Include="MenuPakHendi\Scripts\custom.js" />
+    <Content Include="MenuPakHendi\Scripts\daterangepicker.js" />
+    <Content Include="MenuPakHendi\Scripts\jquery-2.2.0.min.js" />
+    <Content Include="MenuPakHendi\Scripts\jquery-ui-1.11.4.min.js" />
+    <Content Include="MenuPakHendi\Scripts\jquery.nicescroll.min.js" />
+    <Content Include="MenuPakHendi\Scripts\knockout-3.4.0.js" />
+    <Content Include="MenuPakHendi\Scripts\knockout-paging.min.js" />
+    <Content Include="MenuPakHendi\Scripts\knockout.mapping-latest.js" />
+    <Content Include="MenuPakHendi\Scripts\moment.min.js" />
     <Content Include="Models\ISO.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ISO.edmx</DependentUpon>
@@ -319,9 +359,26 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
-    <Content Include="Content\CountDown\images\Thumbs.db" />
-    <Content Include="Content\CountDown\index - Shortcut.lnk" />
-    <Content Include="Content\querycount\img\digits.psd" />
+    <Content Include="ClassDiagram1.cd" />
+    <Content Include="ClassDiagram2.cd" />
+    <Content Include="ClassDiagram3.cd" />
+    <Content Include="MenuPakHendi\Content\bootstrap.min.css.map" />
+    <Content Include="MenuPakHendi\css\font-awesome.css.map" />
+    <Content Include="MenuPakHendi\css\fontawesome-webfont.eot" />
+    <Content Include="MenuPakHendi\css\fontawesome-webfont.ttf" />
+    <Content Include="MenuPakHendi\css\fontawesome-webfont.woff" />
+    <Content Include="MenuPakHendi\css\fontawesome-webfont.woff2" />
+    <Content Include="MenuPakHendi\css\FontAwesome.otf" />
+    <Content Include="MenuPakHendi\css\font\fontawesome-webfont.eot" />
+    <Content Include="MenuPakHendi\css\font\fontawesome-webfont.ttf" />
+    <Content Include="MenuPakHendi\css\font\fontawesome-webfont.woff" />
+    <Content Include="MenuPakHendi\css\font\fontawesome-webfont.woff2" />
+    <Content Include="MenuPakHendi\css\font\FontAwesome.otf" />
+    <Content Include="MenuPakHendi\fonts\fontawesome-webfont.eot" />
+    <Content Include="MenuPakHendi\fonts\fontawesome-webfont.ttf" />
+    <Content Include="MenuPakHendi\fonts\fontawesome-webfont.woff" />
+    <Content Include="MenuPakHendi\fonts\fontawesome-webfont.woff2" />
+    <Content Include="MenuPakHendi\fonts\FontAwesome.otf" />
     <None Include="Properties\PublishProfiles\83.pubxml" />
     <None Include="Properties\PublishProfiles\new.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -337,7 +394,9 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\sidebar_menu.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -347,7 +406,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -387,6 +445,25 @@
     <Content Include="Views\TrukReports\Details.cshtml" />
     <Content Include="Views\TrukReports\Edit.cshtml" />
     <Content Include="Views\TrukReports\Index.cshtml" />
+    <Content Include="Views\Kendaraan\Create.cshtml" />
+    <Content Include="Views\Kendaraan\Delete.cshtml" />
+    <Content Include="Views\Kendaraan\Details.cshtml" />
+    <Content Include="Views\Kendaraan\Edit.cshtml" />
+    <Content Include="Views\Kendaraan\Index.cshtml" />
+    <Content Include="Views\ProblemKendaraan\Create.cshtml" />
+    <Content Include="Views\ProblemKendaraan\Delete.cshtml" />
+    <Content Include="Views\ProblemKendaraan\Details.cshtml" />
+    <Content Include="Views\ProblemKendaraan\Edit.cshtml" />
+    <Content Include="Views\ProblemKendaraan\Index.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\LapService\Create.cshtml" />
+    <Content Include="Views\LapService\Delete.cshtml" />
+    <Content Include="Views\LapService\Details.cshtml" />
+    <Content Include="Views\LapService\Edit.cshtml" />
+    <Content Include="Views\LapService\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutAsli.cshtml" />
+    <Content Include="Views\Shared\_LayoutGentellaOK.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -400,13 +477,38 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201606270943407_InitialCreate.resx">
+      <DependentUpon>201606270943407_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606280633427_initial2.resx">
+      <DependentUpon>201606280633427_initial2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606280712261_TambahProblemTrial1.resx">
+      <DependentUpon>201606280712261_TambahProblemTrial1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606290046544_hilangproblemdrLapService.resx">
+      <DependentUpon>201606290046544_hilangproblemdrLapService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606290058427_newProblem.resx">
+      <DependentUpon>201606290058427_newProblem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606290534359_ProblemShow.resx">
+      <DependentUpon>201606290534359_ProblemShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606300752587_tambahtgldikerjakanndetail.resx">
+      <DependentUpon>201606300752587_tambahtgldikerjakanndetail.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">

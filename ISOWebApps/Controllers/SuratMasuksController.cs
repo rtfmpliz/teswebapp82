@@ -61,7 +61,7 @@ namespace ISOWebApps.Controllers
                     break;
             }
 
-            int pageSize = 6;
+            int pageSize = 20;
             int pageNumber = (page ?? 1);
             return View(SuratMasuks.ToPagedList(pageNumber, pageSize));
 
@@ -107,6 +107,7 @@ namespace ISOWebApps.Controllers
         }
 
         // GET: SuratMasuks/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)

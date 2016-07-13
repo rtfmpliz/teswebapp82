@@ -1,0 +1,99 @@
+﻿@model ISOWebApps.Models.LapService
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LapService</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Kendaraan.NoPol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kendaraan.NoPol)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Perkiraan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Perkiraan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Waktu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Waktu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bengkel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bengkel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AlamatTelp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlamatTelp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Keterangan)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProblemKendaraans)
+        </dt>
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Problem</th>
+                    <th>Tgl Dikerjakan</th>
+                    <th>Detail</th>
+                    <th>Status</th>
+                    <th>Reschedule</th>
+                </tr>
+                @foreach (var item in Model.ProblemKendaraans)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Problem)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TglDikerjakan)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Detail)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Status)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.JadwalTunda)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LapServiceID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

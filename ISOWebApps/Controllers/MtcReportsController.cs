@@ -60,7 +60,7 @@ namespace ISOWebApps.Controllers
             int pageNumber = (page ?? 1);
             return View(MtcReports.ToPagedList(pageNumber, pageSize));
 
-            return View(db.MtcReports.ToList());
+            //return View(db.MtcReports.ToList());
         }
 
         // GET: MtcReports/Details/5

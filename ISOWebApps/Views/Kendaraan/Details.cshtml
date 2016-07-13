@@ -1,0 +1,72 @@
+﻿@model ISOWebApps.Models.Kendaraan
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Kendaraan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NoPol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoPol)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipeKendaraan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipeKendaraan)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LapServices)
+        </dt>
+        <dd>
+            <table class="table">
+                <tr>
+
+                    <th>No Laporan</th>
+                    <th>Perkiraan</th>
+                    <th>Bengkel</th>
+                    <th>Waktu</th>
+                    <th>Alamat</th>
+                    <th>Keterangan</th>
+                </tr>
+                @foreach (var item in Model.LapServices)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LapServiceID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem=>item.Perkiraan)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Bengkel)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Waktu)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AlamatTelp)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Keterangan)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+            </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

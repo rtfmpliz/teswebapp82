@@ -1,0 +1,73 @@
+﻿@model IEnumerable<ISOWebApps.Models.LapService>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LapServiceID)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Kendaraan.NoPol)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kendaraan.NoPol)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Perkiraan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Waktu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bengkel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AlamatTelp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LapServiceID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kendaraan.NoPol)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Perkiraan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Waktu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bengkel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AlamatTelp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Keterangan)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.LapServiceID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.LapServiceID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.LapServiceID })
+        </td>
+    </tr>
+}
+
+</table>

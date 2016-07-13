@@ -49,10 +49,10 @@
         </th>
         <th>
             @*@Html.DisplayNameFor(model => model.PenerimaSecurity)*@ Penerima di Security
-        </th>
+        @*</th>
         <th>
-            @*@Html.DisplayNameFor(model => model.PenerimaKantor)*@Penerima di Kantor
-        </th>
+            @Html.DisplayNameFor(model => model.PenerimaKantor)Penerima di Kantor
+        </th>*@
         <th>
             @*@Html.DisplayNameFor(model => model.Verifikasi)*@Verifikasi
         </th>
@@ -84,14 +84,14 @@
         <td>
             @Html.DisplayFor(modelItem => item.PenerimaSecurity)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.PenerimaKantor)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.Verifikasi)
         </td>
         <td>
-            @*@Html.ActionLink("Edit", "Edit", new { id=item.SuratMasukId }) |*@
+            @Html.ActionLink("Diterima", "Edit", new { id=item.SuratMasukId }) 
             @*@Html.ActionLink("Details", "Details", new { id=item.SuratMasukId }) |*@
             @*@Html.ActionLink("Delete", "Delete", new { id=item.SuratMasukId })*@
         </td>
