@@ -11,7 +11,7 @@ using System.Data.Entity.Infrastructure.MappingViews;
 
 [assembly: DbMappingViewCacheTypeAttribute(
     typeof(ISOWebApps.DAL.KendaraanContext),
-    typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySetsb8f96561a629a0c9a8a58010077150106a3ac02946f62d8e9992746910280bbe))]
+    typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySetsed628b81e3696aad8fc9fd6a335a252ff9e60ade4e71413d28f8981e8fe38f03))]
 
 namespace Edm_EntityMappingGeneratedViews
 {
@@ -23,14 +23,14 @@ namespace Edm_EntityMappingGeneratedViews
     /// Implements a mapping view cache.
     /// </summary>
     [GeneratedCode("Entity Framework Power Tools", "0.9.0.0")]
-    internal sealed class ViewsForBaseEntitySetsb8f96561a629a0c9a8a58010077150106a3ac02946f62d8e9992746910280bbe : DbMappingViewCache
+    internal sealed class ViewsForBaseEntitySetsed628b81e3696aad8fc9fd6a335a252ff9e60ade4e71413d28f8981e8fe38f03 : DbMappingViewCache
     {
         /// <summary>
         /// Gets a hash value computed over the mapping closure.
         /// </summary>
         public override string MappingHashValue
         {
-            get { return "b8f96561a629a0c9a8a58010077150106a3ac02946f62d8e9992746910280bbe"; }
+            get { return "ed628b81e3696aad8fc9fd6a335a252ff9e60ade4e71413d28f8981e8fe38f03"; }
         }
 
         /// <summary>
@@ -47,49 +47,231 @@ namespace Edm_EntityMappingGeneratedViews
 
             var extentName = extent.EntityContainer.Name + "." + extent.Name;
 
-            if (extentName == "CodeFirstDatabase.Kendaraan")
+            if (extentName == "CodeFirstDatabase.Department")
             {
                 return GetView0();
             }
 
-            if (extentName == "CodeFirstDatabase.LapService")
+            if (extentName == "KendaraanContext.Departments")
             {
                 return GetView1();
             }
 
-            if (extentName == "CodeFirstDatabase.ProblemKendaraan")
+            if (extentName == "CodeFirstDatabase.Jabatan")
             {
                 return GetView2();
             }
 
-            if (extentName == "KendaraanContext.Kendaraans")
+            if (extentName == "KendaraanContext.Jabatans")
             {
                 return GetView3();
             }
 
-            if (extentName == "KendaraanContext.LapServices")
+            if (extentName == "CodeFirstDatabase.Karyawan")
             {
                 return GetView4();
             }
 
-            if (extentName == "KendaraanContext.ProblemKendaraan")
+            if (extentName == "CodeFirstDatabase.TrukKeluar")
             {
                 return GetView5();
             }
 
-            if (extentName == "KendaraanContext.ProblemKendaraan_LapService")
+            if (extentName == "CodeFirstDatabase.Kendaraan")
             {
                 return GetView6();
+            }
+
+            if (extentName == "CodeFirstDatabase.LapService")
+            {
+                return GetView7();
+            }
+
+            if (extentName == "CodeFirstDatabase.ProblemKendaraan")
+            {
+                return GetView8();
+            }
+
+            if (extentName == "KendaraanContext.Karyawans")
+            {
+                return GetView9();
+            }
+
+            if (extentName == "KendaraanContext.TrukKeluars")
+            {
+                return GetView10();
+            }
+
+            if (extentName == "KendaraanContext.TrukKeluar_Karyawan")
+            {
+                return GetView11();
+            }
+
+            if (extentName == "KendaraanContext.Kendaraans")
+            {
+                return GetView12();
+            }
+
+            if (extentName == "KendaraanContext.LapServices")
+            {
+                return GetView13();
+            }
+
+            if (extentName == "KendaraanContext.ProblemKendaraan")
+            {
+                return GetView14();
+            }
+
+            if (extentName == "KendaraanContext.ProblemKendaraan_LapService")
+            {
+                return GetView15();
+            }
+
+            if (extentName == "CodeFirstDatabase.Section")
+            {
+                return GetView16();
+            }
+
+            if (extentName == "KendaraanContext.Sections")
+            {
+                return GetView17();
             }
 
             return null;
         }
 
         /// <summary>
-        /// Gets the view for CodeFirstDatabase.Kendaraan.
+        /// Gets the view for CodeFirstDatabase.Department.
         /// </summary>
         /// <returns>The mapping view.</returns>
         private static DbMappingView GetView0()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing Department
+        [CodeFirstDatabaseSchema.Department](T1.Department_ID, T1.Department_DepartmentDesc)
+    FROM (
+        SELECT 
+            T.ID AS Department_ID, 
+            T.DepartmentDesc AS Department_DepartmentDesc, 
+            True AS _from0
+        FROM KendaraanContext.Departments AS T
+    ) AS T1");
+        }
+
+        /// <summary>
+        /// Gets the view for KendaraanContext.Departments.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView1()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing Departments
+        [ISOWebApps.DAL.Department](T1.Department_ID, T1.Department_DepartmentDesc)
+    FROM (
+        SELECT 
+            T.ID AS Department_ID, 
+            T.DepartmentDesc AS Department_DepartmentDesc, 
+            True AS _from0
+        FROM CodeFirstDatabase.Department AS T
+    ) AS T1");
+        }
+
+        /// <summary>
+        /// Gets the view for CodeFirstDatabase.Jabatan.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView2()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing Jabatan
+        [CodeFirstDatabaseSchema.Jabatan](T1.Jabatan_ID, T1.Jabatan_JabatanDesc)
+    FROM (
+        SELECT 
+            T.ID AS Jabatan_ID, 
+            T.JabatanDesc AS Jabatan_JabatanDesc, 
+            True AS _from0
+        FROM KendaraanContext.Jabatans AS T
+    ) AS T1");
+        }
+
+        /// <summary>
+        /// Gets the view for KendaraanContext.Jabatans.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView3()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing Jabatans
+        [ISOWebApps.DAL.Jabatan](T1.Jabatan_ID, T1.Jabatan_JabatanDesc)
+    FROM (
+        SELECT 
+            T.ID AS Jabatan_ID, 
+            T.JabatanDesc AS Jabatan_JabatanDesc, 
+            True AS _from0
+        FROM CodeFirstDatabase.Jabatan AS T
+    ) AS T1");
+        }
+
+        /// <summary>
+        /// Gets the view for CodeFirstDatabase.Karyawan.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView4()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing Karyawan
+        [CodeFirstDatabaseSchema.Karyawan](T1.Karyawan_ID, T1.Karyawan_NIK, T1.Karyawan_NamaKaryawan)
+    FROM (
+        SELECT 
+            T.ID AS Karyawan_ID, 
+            T.NIK AS Karyawan_NIK, 
+            T.NamaKaryawan AS Karyawan_NamaKaryawan, 
+            True AS _from0
+        FROM KendaraanContext.Karyawans AS T
+    ) AS T1");
+        }
+
+        /// <summary>
+        /// Gets the view for CodeFirstDatabase.TrukKeluar.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView5()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing TrukKeluar
+        [CodeFirstDatabaseSchema.TrukKeluar](T3.TrukKeluar_ID, T3.TrukKeluar_TglReport, T3.TrukKeluar_KaryawanID, T3.TrukKeluar_KendaraanID, T3.TrukKeluar_Tujuan, T3.TrukKeluar_JenisMuatanBrkt, T3.TrukKeluar_TonMuatanBrkt, T3.TrukKeluar_JenisMuatanPlg, T3.TrukKeluar_TonMuatanPlg, T3.TrukKeluar_TglBerangkat, T3.TrukKeluar_TglPulang, T3.[TrukKeluar.Karyawan_ID])
+    FROM (
+        SELECT T1.TrukKeluar_ID, T1.TrukKeluar_TglReport, T1.TrukKeluar_KaryawanID, T1.TrukKeluar_KendaraanID, T1.TrukKeluar_Tujuan, T1.TrukKeluar_JenisMuatanBrkt, T1.TrukKeluar_TonMuatanBrkt, T1.TrukKeluar_JenisMuatanPlg, T1.TrukKeluar_TonMuatanPlg, T1.TrukKeluar_TglBerangkat, T1.TrukKeluar_TglPulang, T2.[TrukKeluar.Karyawan_ID], T1._from0, (T2._from1 AND T2._from1 IS NOT NULL) AS _from1
+        FROM  (
+            SELECT 
+                T.ID AS TrukKeluar_ID, 
+                T.TglReport AS TrukKeluar_TglReport, 
+                T.KaryawanID AS TrukKeluar_KaryawanID, 
+                T.KendaraanID AS TrukKeluar_KendaraanID, 
+                T.Tujuan AS TrukKeluar_Tujuan, 
+                T.JenisMuatanBrkt AS TrukKeluar_JenisMuatanBrkt, 
+                T.TonMuatanBrkt AS TrukKeluar_TonMuatanBrkt, 
+                T.JenisMuatanPlg AS TrukKeluar_JenisMuatanPlg, 
+                T.TonMuatanPlg AS TrukKeluar_TonMuatanPlg, 
+                T.TglBerangkat AS TrukKeluar_TglBerangkat, 
+                T.TglPulang AS TrukKeluar_TglPulang, 
+                True AS _from0
+            FROM KendaraanContext.TrukKeluars AS T) AS T1
+            LEFT OUTER JOIN (
+            SELECT 
+                Key(T.TrukKeluar_Karyawan_Source).ID AS TrukKeluar_ID, 
+                Key(T.TrukKeluar_Karyawan_Target).ID AS [TrukKeluar.Karyawan_ID], 
+                True AS _from1
+            FROM KendaraanContext.TrukKeluar_Karyawan AS T) AS T2
+            ON T1.TrukKeluar_ID = T2.TrukKeluar_ID
+    ) AS T3");
+        }
+
+        /// <summary>
+        /// Gets the view for CodeFirstDatabase.Kendaraan.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView6()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing Kendaraan
@@ -108,7 +290,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for CodeFirstDatabase.LapService.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView1()
+        private static DbMappingView GetView7()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing LapService
@@ -131,7 +313,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for CodeFirstDatabase.ProblemKendaraan.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView2()
+        private static DbMappingView GetView8()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing ProblemKendaraan
@@ -159,10 +341,87 @@ namespace Edm_EntityMappingGeneratedViews
         }
 
         /// <summary>
+        /// Gets the view for KendaraanContext.Karyawans.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView9()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing Karyawans
+        [ISOWebApps.DAL.Karyawan](T1.Karyawan_ID, T1.Karyawan_NIK, T1.Karyawan_NamaKaryawan)
+    FROM (
+        SELECT 
+            T.ID AS Karyawan_ID, 
+            T.NIK AS Karyawan_NIK, 
+            T.NamaKaryawan AS Karyawan_NamaKaryawan, 
+            True AS _from0
+        FROM CodeFirstDatabase.Karyawan AS T
+    ) AS T1");
+        }
+
+        /// <summary>
+        /// Gets the view for KendaraanContext.TrukKeluars.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView10()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing TrukKeluars
+        [ISOWebApps.DAL.TrukKeluar](T1.TrukKeluar_ID, T1.TrukKeluar_TglReport, T1.TrukKeluar_KaryawanID, T1.TrukKeluar_KendaraanID, T1.TrukKeluar_Tujuan, T1.TrukKeluar_JenisMuatanBrkt, T1.TrukKeluar_TonMuatanBrkt, T1.TrukKeluar_JenisMuatanPlg, T1.TrukKeluar_TonMuatanPlg, T1.TrukKeluar_TglBerangkat, T1.TrukKeluar_TglPulang) WITH 
+        RELATIONSHIP(CREATEREF(KendaraanContext.Karyawans, ROW(T1.[TrukKeluar_Karyawan.TrukKeluar_Karyawan_Target.ID]),[ISOWebApps.DAL.Karyawan]),[ISOWebApps.DAL.TrukKeluar_Karyawan],TrukKeluar_Karyawan_Source,TrukKeluar_Karyawan_Target) 
+    FROM (
+        SELECT 
+            T.ID AS TrukKeluar_ID, 
+            T.TglReport AS TrukKeluar_TglReport, 
+            T.KaryawanID AS TrukKeluar_KaryawanID, 
+            T.KendaraanID AS TrukKeluar_KendaraanID, 
+            T.Tujuan AS TrukKeluar_Tujuan, 
+            T.JenisMuatanBrkt AS TrukKeluar_JenisMuatanBrkt, 
+            T.TonMuatanBrkt AS TrukKeluar_TonMuatanBrkt, 
+            T.JenisMuatanPlg AS TrukKeluar_JenisMuatanPlg, 
+            T.TonMuatanPlg AS TrukKeluar_TonMuatanPlg, 
+            T.TglBerangkat AS TrukKeluar_TglBerangkat, 
+            T.TglPulang AS TrukKeluar_TglPulang, 
+            True AS _from0, 
+            T.Karyawan_ID AS [TrukKeluar_Karyawan.TrukKeluar_Karyawan_Target.ID]
+        FROM CodeFirstDatabase.TrukKeluar AS T
+    ) AS T1");
+        }
+
+        /// <summary>
+        /// Gets the view for KendaraanContext.TrukKeluar_Karyawan.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView11()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing TrukKeluar_Karyawan
+        [ISOWebApps.DAL.TrukKeluar_Karyawan](T3.[TrukKeluar_Karyawan.TrukKeluar_Karyawan_Source], T3.[TrukKeluar_Karyawan.TrukKeluar_Karyawan_Target])
+    FROM (
+        SELECT -- Constructing TrukKeluar_Karyawan_Source
+            CreateRef(KendaraanContext.TrukKeluars, row(T2.[TrukKeluar_Karyawan.TrukKeluar_Karyawan_Source.ID]), [ISOWebApps.DAL.TrukKeluar]) AS [TrukKeluar_Karyawan.TrukKeluar_Karyawan_Source], 
+            T2.[TrukKeluar_Karyawan.TrukKeluar_Karyawan_Target]
+        FROM (
+            SELECT -- Constructing TrukKeluar_Karyawan_Target
+                T1.[TrukKeluar_Karyawan.TrukKeluar_Karyawan_Source.ID], 
+                CreateRef(KendaraanContext.Karyawans, row(T1.[TrukKeluar_Karyawan.TrukKeluar_Karyawan_Target.ID]), [ISOWebApps.DAL.Karyawan]) AS [TrukKeluar_Karyawan.TrukKeluar_Karyawan_Target]
+            FROM (
+                SELECT 
+                    T.ID AS [TrukKeluar_Karyawan.TrukKeluar_Karyawan_Source.ID], 
+                    T.Karyawan_ID AS [TrukKeluar_Karyawan.TrukKeluar_Karyawan_Target.ID], 
+                    True AS _from0
+                FROM CodeFirstDatabase.TrukKeluar AS T
+                WHERE T.Karyawan_ID IS NOT NULL
+            ) AS T1
+        ) AS T2
+    ) AS T3");
+        }
+
+        /// <summary>
         /// Gets the view for KendaraanContext.Kendaraans.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView3()
+        private static DbMappingView GetView12()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing Kendaraans
@@ -181,7 +440,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for KendaraanContext.LapServices.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView4()
+        private static DbMappingView GetView13()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing LapServices
@@ -204,7 +463,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for KendaraanContext.ProblemKendaraan.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView5()
+        private static DbMappingView GetView14()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing ProblemKendaraan
@@ -228,7 +487,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// Gets the view for KendaraanContext.ProblemKendaraan_LapService.
         /// </summary>
         /// <returns>The mapping view.</returns>
-        private static DbMappingView GetView6()
+        private static DbMappingView GetView15()
         {
             return new DbMappingView(@"
     SELECT VALUE -- Constructing ProblemKendaraan_LapService
@@ -251,6 +510,42 @@ namespace Edm_EntityMappingGeneratedViews
             ) AS T1
         ) AS T2
     ) AS T3");
+        }
+
+        /// <summary>
+        /// Gets the view for CodeFirstDatabase.Section.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView16()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing Section
+        [CodeFirstDatabaseSchema.Section](T1.Section_ID, T1.Section_SectionDesc)
+    FROM (
+        SELECT 
+            T.ID AS Section_ID, 
+            T.SectionDesc AS Section_SectionDesc, 
+            True AS _from0
+        FROM KendaraanContext.Sections AS T
+    ) AS T1");
+        }
+
+        /// <summary>
+        /// Gets the view for KendaraanContext.Sections.
+        /// </summary>
+        /// <returns>The mapping view.</returns>
+        private static DbMappingView GetView17()
+        {
+            return new DbMappingView(@"
+    SELECT VALUE -- Constructing Sections
+        [ISOWebApps.DAL.Section](T1.Section_ID, T1.Section_SectionDesc)
+    FROM (
+        SELECT 
+            T.ID AS Section_ID, 
+            T.SectionDesc AS Section_SectionDesc, 
+            True AS _from0
+        FROM CodeFirstDatabase.Section AS T
+    ) AS T1");
         }
     }
 }

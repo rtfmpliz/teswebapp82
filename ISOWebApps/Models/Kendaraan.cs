@@ -13,5 +13,6 @@ namespace ISOWebApps.Models
         public string TipeKendaraan { get; set; }
 
         public virtual ICollection<LapService> LapServices { get; set; }
+        public virtual ICollection<TrukKeluar> TrukKeluars { get; set; }
     }
 }

@@ -1,0 +1,98 @@
+﻿@model ISOWebApps.Models.TrukKeluar
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TrukKeluar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Kendaraan.NoPol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kendaraan.NoPol)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TglReport)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TglReport)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KaryawanID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Karyawan.NamaKaryawan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tujuan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tujuan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JenisMuatanBrkt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JenisMuatanBrkt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TonMuatanBrkt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TonMuatanBrkt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JenisMuatanPlg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JenisMuatanPlg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TonMuatanPlg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TonMuatanPlg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TglBerangkat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TglBerangkat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TglPulang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TglPulang)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

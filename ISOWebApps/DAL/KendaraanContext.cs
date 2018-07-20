@@ -19,9 +19,16 @@ namespace ISOWebApps.DAL
         public DbSet<LapService> LapServices { get; set; }
         public DbSet<ProblemKendaraan> ProblemKendaraan { get; set; }
 
+        public DbSet<Karyawan> Karyawans { get; set; }
+        public DbSet<Department> Departments { get; set; }
+        public DbSet<Jabatan> Jabatans { get; set; }
+        public DbSet<Section> Sections { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
+
+        public System.Data.Entity.DbSet<ISOWebApps.Models.TrukKeluar> TrukKeluars { get; set; }
     }
 }

@@ -1,0 +1,87 @@
+﻿@model IEnumerable<ISOWebApps.Models.TrukKeluar>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Kendaraan.NoPol)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TglReport)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Karyawan.NamaKaryawan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tujuan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JenisMuatanBrkt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TonMuatanBrkt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JenisMuatanPlg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TonMuatanPlg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TglBerangkat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TglPulang)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kendaraan.NoPol)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TglReport)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Karyawan.NamaKaryawan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tujuan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JenisMuatanBrkt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TonMuatanBrkt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JenisMuatanPlg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TonMuatanPlg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TglBerangkat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TglPulang)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
